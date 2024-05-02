@@ -1,0 +1,48 @@
+"id","name","type","created_at","updated_at"
+"1","view_posts","blog",NULL,NULL
+"2","add_posts","blog",NULL,NULL
+"3","edit_posts","blog",NULL,NULL
+"4","delete_posts","blog",NULL,NULL
+"5","view_categories","category",NULL,NULL
+"6","add_categories","category",NULL,NULL
+"7","edit_categories","category",NULL,NULL
+"8","delete_categories","category",NULL,NULL
+"9","view_users","user",NULL,NULL
+"10","add_users","user",NULL,NULL
+"11","add_permissions","user",NULL,NULL
+"12","view_permissions","settings",NULL,NULL
+"13","site_settings","settings",NULL,NULL
+"14","edit_permissions","settings",NULL,NULL
+"15","delete_permissions","settings",NULL,NULL
+"16","view_advertisements","advertisements",NULL,NULL
+"17","add_advertisements","advertisements",NULL,NULL
+"18","edit_advertisements","advertisements",NULL,NULL
+"19","delete_advertisements","advertisements",NULL,NULL
+"20","edit_users","user",NULL,NULL
+"21","view_subscriptions","subscribe",NULL,NULL
+"22","view_sponsors","sponsors",NULL,NULL
+"23","add_sponsors","sponsors",NULL,NULL
+"24","remove_sponsors","sponsors",NULL,NULL
+"25","edit_sponsors","sponsors",NULL,NULL
+"26","update_sponsors","sponsors",NULL,NULL
+"27","add_contacts","contacts",NULL,NULL
+"28","edit_contacts","contacts",NULL,NULL
+"29","remove_contacts","contacts",NULL,NULL
+"30","view_contacts","contacts",NULL,NULL
+"31","update_contacts","contacts",NULL,NULL
+"32","add_rule","rules",NULL,NULL
+"33","edit_rule","rules",NULL,NULL
+"34","view_rule","rules",NULL,NULL
+"35","remove_rule","rules",NULL,NULL
+"36","add_forms","forms",NULL,NULL
+"37","edit_forms","forms",NULL,NULL
+"38","delete_forms","forms",NULL,NULL
+"39","view_forms","forms",NULL,NULL
+"40","view_gallery","gallery",NULL,NULL
+"41","add_gallery","gallery",NULL,NULL
+"42","remove_gallery","gallery",NULL,NULL
+"43","edit_gallery","gallery",NULL,NULL
+"44","view_resources","resources","2023-06-27 11:11:38","2023-06-27 11:11:38"
+"45","add_resources","resources","2023-06-27 11:11:48","2023-06-27 11:11:48"
+"46","edit_resources","resources","2023-06-27 11:12:02","2023-06-27 11:12:02"
+"47","delete_resources","resources","2023-06-27 11:12:11","2023-06-27 11:12:11"

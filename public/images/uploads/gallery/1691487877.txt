@@ -1,0 +1,1515 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Aug 08, 2023 at 12:24 PM
+-- Server version: 10.3.28-MariaDB
+-- PHP Version: 7.4.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `myca_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `category_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT '0 => inactive, 1 => active',
+  `type` int(11) NOT NULL DEFAULT 0 COMMENT '0 => post, 1 => product',
+  `category_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `page_title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_tag_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keywords` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `canonical_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `category_name`, `category_description`, `slug`, `status`, `type`, `category_image`, `page_title`, `meta_tag_description`, `meta_keywords`, `canonical_url`, `created_at`, `updated_at`) VALUES
+(5, '2023 interstate REP Game', 'REP Game 2023', 'REPGame2023', 1, 2, 'images/uploads/categories/1689151185.jpg', NULL, NULL, NULL, NULL, '2023-07-12 03:09:45', '2023-08-07 03:21:08'),
+(6, '2023 Season', '2023 Season', '2023_season', 1, 2, 'images/uploads/categories/1689241170.jpg', NULL, NULL, NULL, NULL, '2023-07-13 04:09:30', '2023-07-16 23:41:22'),
+(7, '2022 Season and before', '2022 Season and before', '2022_season_and_before', 1, 2, 'images/uploads/categories/1689570759.jpg', NULL, NULL, NULL, NULL, '2023-07-16 23:42:39', '2023-07-16 23:42:39'),
+(8, '2023 Victorian Rep Games', '2023 Victorian Rep Games', 'VIC Rep game', 1, 2, 'images/uploads/categories/1691400482.jpg', NULL, NULL, NULL, NULL, '2023-08-07 03:58:02', '2023-08-07 03:58:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `club_contacts`
+--
+
+CREATE TABLE `club_contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `club_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `competition_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `number_of_teams` int(11) NOT NULL,
+  `contact_person` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `executive_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `executive_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT '0 => inactive, 1 => active',
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `club_contacts`
+--
+
+INSERT INTO `club_contacts` (`id`, `club_name`, `competition_type`, `number_of_teams`, `contact_person`, `contact_phone`, `executive_name`, `designation`, `executive_phone`, `status`, `email`, `created_at`, `updated_at`) VALUES
+(1, 'Aintree Cricket Club', 'Men Seniors - Saturday', 2, 'Ankur Harkut', '476792347', 'Iqbal Singh Chohan', 'President', '424631028', 1, 'harkutankur@gmail.com', NULL, NULL),
+(2, 'Aintree Cricket Club', 'Men Seniors - Sunday', 1, 'Ankur Harkut', '476792347', 'Iqbal Singh Chohan', 'President', '424631028', 1, 'harkutankur@gmail.com', NULL, NULL),
+(3, 'Altona North Cricket Club', 'Men Seniors - Saturday', 1, 'Syed Shabbir', '426813476', 'Andrew Auciello', 'Andrew Auciello', '408659311', 1, 'Andrew.auciello@gmail.com', NULL, NULL),
+(4, 'Altona Sports Cricket Club', 'Men Seniors - Saturday', 2, 'Dean Bryden', '401554456', 'Liam Brennan', '0433 654 544', '433654544', 1, 'president@altonasportscc.com.au', NULL, NULL),
+(5, 'AVYUKT ARYAHI TARNEIT CRICKET CLUB INC.', 'U-14 Mixed Junior\'s', 2, 'PREM KUMAR CHINTALA', '433103165', 'Sandhya R. MAGANTI', 'PRESIDENT', '433833165', 1, 'chinthalaprem@yahoo.co.in', NULL, NULL),
+(6, 'AVYUKT ARYAHI TARNEIT CRICKET CLUB INC.', 'Men Seniors - Saturday', 1, 'Prem Kumar ', '433103165', 'SANDHYA MAGANTI', 'President', '433833165', 1, 'chinthalaprem@yahoo.co.in', NULL, NULL),
+(7, 'Barkly Street Uniting Cricket Club', 'Men Seniors - Saturday', 1, 'Jeffrey Law', '411058689', 'Jeffrey Law', 'Administrator', '411058689', 1, 'admin@barklystreetcc.org', NULL, NULL),
+(8, 'Bellfield Cricket Club', 'Men Seniors - Saturday', 2, 'Jiten Baudh', '422272591', 'Praveen Das', 'General Secretary', '428914888', 1, 'jbaudh@gmail.com', NULL, NULL),
+(9, 'Bellfield Cricket Club', 'Men Seniors - Sunday', 1, 'Jiten Baudh', '422272591', 'Praveen Das', 'General Secretary', '428914888', 1, 'jbaudh@gmail.com', NULL, NULL),
+(10, 'Berwick strikers', 'Men Seniors - Saturday', 1, 'Pasindu Sunilchandra', '430366649', 'Raiz Nizam', 'Treasurer', '433344692', 1, 'pasinduprathibha@gmail.com', NULL, NULL),
+(11, 'Berwick Strikers CC', 'Men Seniors - Sunday', 1, 'Pas Sunilchandra', '433462568', 'Sam', 'Secratary', '433462568', 1, 'berwick.strikers@gmail.com', NULL, NULL),
+(12, 'Blackbridge', 'Men Seniors - Saturday', 1, 'Paul Bridges-Black', '421849055', 'Kylie Sell', 'Treasurer', '427995229', 1, 'pjrb88@outlook.com', NULL, NULL),
+(13, 'Bombers Cricket Club Incorporated', 'Men Seniors - Saturday', 1, 'Sukhdeep Singh', '433413134', 'Vijay Singh', 'Secretary', '434908190', 1, 'singh_melbourne82@hotmail.com', NULL, NULL),
+(14, 'Brimbank lions', 'Men Seniors - Sunday', 1, 'Abhit singh', '420228944', 'Yuvraj', 'Secretary', '469074999', 1, 'abhitjosan@gmail.com', NULL, NULL),
+(15, 'BRIMBANK STRIKERS CRICKET CLUB', 'Men Seniors - Saturday', 1, 'Stephen Verghese', '447667008', 'Joby Manuel', 'Treasurer', '469601509', 1, 'stephenverghese@gmail.com', NULL, NULL),
+(16, 'Centrals', 'Womens-Senior', 1, 'Rachel Oriordan', '432211807', 'Rob Chafer', 'Coach', '421237698', 1, 'roriordan47@yahoo.com', NULL, NULL),
+(17, 'Chirnside Park Cricket Club', 'Men Seniors - Saturday', 2, 'Aaron Corris', '411782684', 'Brad Malbon', 'Secretary', '425664747', 1, 'aaroncorris@gmail.com', NULL, NULL),
+(18, 'Chirnside Park Cricket Club', 'U-14 Mixed Junior\'s', 1, 'Aaron Corris', '411782684', 'Brad Malbon', 'Secretary', '425664747', 1, 'aaroncorris@gmail.com', NULL, NULL),
+(19, 'Clayton District Cricket Club', 'Men Seniors - Saturday', 2, 'Sandip Gadakh', '414562780', 'Bradley Andrews', 'President', '405236943', 1, 'Sandipgadakh@yahoo.com', NULL, NULL),
+(20, 'Clayton District Cricket Club', 'U-14 Mixed Junior\'s', 3, 'Satbir Singh', '430341849', 'Sandip Gadakh', 'VIce President', '414562780', 1, 'Sandipgadakh@yahoo.com', NULL, NULL),
+(21, 'Craigieburn Cricket Club', 'Men Seniors - Saturday', 1, 'Vikramjit Multani', '423930260', 'Gerald Laffan', 'President', '410496784', 1, 'vikramjit.multani@gmail.com', NULL, NULL),
+(22, 'CUCC kings', 'Men Seniors - Saturday', 1, 'Subhranshu Sekhar', '414786534', 'Subhranshu Sekhar', 'Secretary', '414786534', 1, 'rajaoec@gmail.com', NULL, NULL),
+(23, 'CUCC kings', 'U-14 Mixed Junior\'s', 1, 'Subhranshu Sekhar', '414786534', 'Subhranshu Sekhar', 'Secretary', '414786534', 1, 'rajaoec@gmail.com', NULL, NULL),
+(24, 'CUCC kings', 'Womens-Senior', 1, 'Subi', '414786534', 'Subhranshu Sekhar', 'Secretary', '414786534', 1, 'rajaoec@gmail.com', NULL, NULL),
+(25, 'darebin Chargers Cricket club', 'Men Seniors - Saturday', 2, 'raman pannu', '433281659', 'vimal dhillon', 'president', '433281659', 1, 'secretary@dccc.com.au', NULL, NULL),
+(26, 'darebin chargers cricket club', 'Men Seniors - Sunday', 2, 'raman pannu', '433281659', 'vimal dhillon', 'president', '433966795', 1, 'secretary@dccc.com.au', NULL, NULL),
+(27, 'darebin chargers cricket club', 'U-14 Mixed Junior\'s', 3, 'Raman Pannu', '433281659', 'Vimal Dhillom', 'president', '433966795', 1, 'secretary@dccc.com.au', NULL, NULL),
+(28, 'Deccan Chargers incorporated', 'Men Seniors - Saturday', 1, 'Chandra Mohan', '450366426', 'Prajjun', 'Secretary', '452638055', 1, 'scmohan555@gmail.com', NULL, NULL),
+(29, 'Deepdene Uniting Cricket club', 'Men Seniors - Saturday', 1, 'Kunal Balhara', '499092666', 'scott', 'secretary', '405513472', 1, 'balharakunal27@gmail.com', NULL, NULL),
+(30, 'Deer Park Cricket Club', 'Men Seniors - Sunday', 1, 'Tariq Siddiqui', '451116573', 'Vincent Crimi', 'Secretary', '416263357', 1, 'siddiqui.tariq@gmail.com', NULL, NULL),
+(31, 'Diamond Cricket Club', 'Men Seniors - Sunday', 1, 'Amal Suresh', '481407781', 'Ankur Sharma', 'Secretary', '433650530', 1, 'diamondcricketclub20s@gmail.com', NULL, NULL),
+(32, 'Doncaster Cricket Club', 'Men Seniors - Saturday', 1, 'Kashyap Grover', '433244584', 'Michael McCormack', 'Treasurer', '412901959', 1, 'kashyapgrover@gmail.com', NULL, NULL),
+(33, 'Doncaster cricket Club', 'U-14 Mixed Junior\'s', 1, 'Balaji Jayakumar', '430236699', 'George kara', 'President', '412599553', 1, 'kashyapgrover@gmail.com', NULL, NULL),
+(34, 'Donnybrook Cricket Club', 'Men Seniors - Saturday', 2, 'Parry Kaura', '433801201', 'Noel Seiplot', 'President', '417398479', 1, 'secretary@donnybrookcricketclub.com.au', NULL, NULL),
+(35, 'Donnybrook Cricket Club', 'Men Seniors - Sunday', 1, 'Parry Kaura', '433801201', 'Noel Seipolt', 'President', '417398479', 1, 'secretary@donnybrookcricketclub.com.au', NULL, NULL),
+(36, 'Donnybrook Cricket Club', 'U-14 Mixed Junior\'s', 1, 'Parry Kaura', '433801201', 'Noel Seipolt', 'President', '714398479', 1, 'secretary@donnybrookcricketclub.com.au', NULL, NULL),
+(37, 'EAGLES C C INC.', 'Men Seniors - Saturday', 1, 'Eagles cricket club', '481143727', 'Ganesh raj Arumugam', 'President', '448431787', 1, 'eaglescc90s@gmail.com', NULL, NULL),
+(38, 'East Bentleigh Central Cricket Club', 'Men Seniors - Sunday', 1, 'Balaji', '435753889', 'Saibaba Pittala', 'Executive support', '411428118', 1, 'balajiveera7695@gmail.com', NULL, NULL),
+(39, 'Edgar Cricket Club', 'Mens Seniors - Sunday', 1, 'Mahesh Gondhesi', '470515655', 'Sudheer Kotagiri', 'Secreatary', '426847899', 1, 'rbeera79@gmail.com', NULL, NULL),
+(40, 'Fairfield Cricket Club', 'Men Seniors - Saturday', 1, 'Gaurav Khandelwal', '448398753', 'Margaret Watt', 'Margaret Watt - Treasurer - Fairfield Cricket Club', '407609433', 1, 'fairfieldcc@optushome.com.au', NULL, NULL),
+(41, 'Flemington colts', 'Men Seniors - Sunday', 1, 'Aaron bailey', '450745078', 'Paul Shakespeare', 'Paul Shakespeare', '414271078', 1, 'flemingtoncoltscc@gmail.com', NULL, NULL),
+(42, 'Fountain Gate cricket club', 'Men Seniors - Saturday', 1, 'Khalid Mirranay', '401880746', 'Tim Mclaren', '0437 840 556', '437840556', 1, 'khalidmirranay@hotmail.com', NULL, NULL),
+(43, 'Genesis Cricket Club', 'Men Seniors - Saturday', 1, 'Nuwantha Rodrigo', '403022092', 'Nuwan De Silva', 'President', '430232581', 1, 'gccpanthers@gmail.com', NULL, NULL),
+(44, 'Glen Orden Sports Club', 'Men Seniors - Saturday', 1, 'Peter MacDonald', '401701182', 'Vimal Chatrati', 'Cricket Admin', '403551764', 1, 'vimal.chatrati@gmail.com', NULL, NULL),
+(45, 'Glen Waverley Cricket Club', 'Men Seniors - Saturday', 1, 'Tushar Bagal', '428581071', 'Chris Filer', 'Secretary', '400058985', 1, 'secretarygwcc@gmail.com', NULL, NULL),
+(46, 'Grand United CC', 'Men Seniors - Saturday', 1, 'Ron Merritt', '477610466', 'Alan Hale', 'President', '402307492', 1, 'grandunitedcc@gmail.com', NULL, NULL),
+(47, 'Greenvale Kangaroos Cricket Club', 'Men Seniors - Saturday', 2, 'Bruce Kent', '419331975', 'Ken Hutchinson', 'Secretary/Administrator', '418582902', 1, 'bruce@bwklaw.com.au', NULL, NULL),
+(48, 'Greenvale Kangaroos Cricket Club', 'Men Seniors - Sunday', 1, 'Bruce Kent', '419331975', 'Ken Hutchinson', 'Secretary/Administrator', '418582902', 1, 'bruce@bwklaw.com.au', NULL, NULL),
+(49, 'Greenvale Kangaroos Cricket Club', 'U-14 Mixed Junior\'s', 1, 'Bruce Kent', '419331975', 'Ken Hutchinson', 'Secretary/Administrator', '418582902', 1, 'bruce@bwklaw.com.au', NULL, NULL),
+(50, 'Heatherton CC', 'Men Seniors - Saturday', 1, 'Nitin Gupta', '430735364', 'Raman shergill', 'Treasurer', '430050197', 1, 'cricketclubheatherton@gmail.com', NULL, NULL),
+(51, 'Hoppers Elite Cricket Club', 'U-14 Mixed Junior\'s', 2, 'Dhana Murugavel', '430911758', 'Ollie Dsouza', 'Vice President', '400850394', 1, 'Hopperselitecricketclub@gmail.com', NULL, NULL),
+(52, 'Hume Cricket Club', 'Men Seniors - Saturday', 1, 'Kranti veer', '430147187', 'Avtar Singh', 'President', '430002037', 1, 'president@humecricket.com.au', NULL, NULL),
+(53, 'JACANA', 'Men Seniors - Saturday', 1, 'MARK CHAMBERS', '400701069', 'BRETT JENSEN', 'BRETT JENSEN', '417591905', 1, 'jacanacricketclub@gmail.com', NULL, NULL),
+(54, 'JACANA', 'Men Seniors - Sunday', 1, 'MARK CHAMBERS', '61400701069', 'BRETT JENSEN', 'BRETT JENSEN', '417591905', 1, 'jacanacricketclub@gmail.com', NULL, NULL),
+(55, 'Kashmir Cricket Club', 'Men Seniors - Saturday', 1, 'Arief SHAH', '422480903', 'Sameer Wani', 'President', '426615315', 1, 'kashmircricketclub2020@gmail.com', NULL, NULL),
+(56, 'Kashmir Cricket Club', 'Men Seniors - Sunday', 1, 'Arief SHAH', '422480903', 'Sameer Wani', 'President', '426615315', 1, 'kashmircricketclub2020@gmail.com', NULL, NULL),
+(57, 'Kerala strikers inc', 'U-14 Mixed Junior\'s', 2, 'Shekhar', '416750786', 'Jonathan', 'President', '401115201', 1, 'keralastrikersmelbourne@gmail.com', NULL, NULL),
+(58, 'Kingsville C.C', 'Men Seniors - Saturday', 1, 'Gurdial Singh', '433492707', 'Muhammad Abbas', 'Manninder Singh', '469297465', 1, 'pally_luv@yahoo.com', NULL, NULL),
+(59, 'Knox Gardens Cricket Club', 'Men Seniors - Sunday', 1, 'Rajat Paul', '424178561', 'Nathan Montague', 'Secretary', '431749109', 1, 'rajatpaul@gmail.com', NULL, NULL),
+(60, 'Kulin Copperheads SC', 'Men Seniors - Saturday', 1, 'Hoshang Hoshang', '413370574', 'Shaber Ayobi', 'Hoshang Hoshang', '402517555', 1, 'kulincopperheadssc@gmail.com', NULL, NULL),
+(61, 'Laburnum', 'Men Seniors - Saturday', 1, 'Luke Alford', '491154408', 'Geoff Olsen', 'President', '409237742', 1, 'lukealford6131@gmail.com', NULL, NULL),
+(62, 'Launching Place', 'Men Seniors - Saturday', 1, 'Leah Parker', '411417253', 'Stuart Parker', 'President', '412185970', 1, 'leahandstuart@hotmail.com', NULL, NULL),
+(63, 'Laverton Cricket Club', 'Men Seniors - Sunday', 1, 'Rahul Anhal', '476817576', 'Mudit Shukla', 'Club Secretary', '481311030', 1, 'rahul_anhal83@yahoo.com', NULL, NULL),
+(64, 'Laverton Cricket Club', 'Men Seniors - Saturday', 1, 'Rahul Anhal', '476817576', 'Mudit Shukla', 'Club Secretary', '481311030', 1, 'rahul_anhal83@yahoo.com', NULL, NULL),
+(65, 'Lynbrook Cricket Club', 'Men Seniors - Saturday', 2, 'Anagh Agarwal', '413301399', 'Shayne Loughnan', 'President', '434027056', 1, 'secretary@lynbrookcc.com.au', NULL, NULL),
+(66, 'Mambourin Cricket Club', 'Men Seniors - Saturday', 2, 'Pravin Kumar', '410042693', 'Ravi Sam', 'Vice President', '433661846', 1, 'pravinkumarpm@gmail.com', NULL, NULL),
+(67, 'Mambourin Cricket Club', 'U-14 Mixed Junior\'s', 2, 'Ravi Sam', '433661846', 'Amit Gupta', 'Treasurer', '466986940', 1, 'pravinkumarpm@gmail.com', NULL, NULL),
+(68, 'Manifold Heights Cricket Club', 'Men Seniors - Saturday', 1, 'Reuben Chandran', '468405545', 'Bailey Croker', 'Bailey Croker', '451744260', 1, 'reubenchandran@gmail.com', NULL, NULL),
+(69, 'Manor Lakes Cricket Club', 'Men Seniors - Saturday', 2, 'Eddy', '430000009', 'Amrit Pabla', 'Vice President', '435477171', 1, 'amritpabla@hotmail.com', NULL, NULL),
+(70, 'Maribyrnong Park St Mary’s CC', 'Men Seniors - Saturday', 2, 'Jonathon Grant', '408355382', 'Paul Kinross', 'Paul Kinross', '437366208', 1, 'jonnygrant79@hotmail.com', NULL, NULL),
+(71, 'Mavericks Cricket Club', 'Men Seniors - Saturday', 1, 'Anup Augustine', '450830200', 'Adnan Ali', 'Club Secretary', '431984375', 1, 'augustineanup@gmail.com', NULL, NULL),
+(72, 'Melbourne blues sports club', 'Men Seniors - Sunday', 1, 'PANDUKA FERNANDO', '413772280', 'CHAMINDA PERERA', 'PRESIDENT', '413885030', 1, 'shahen.dhanuka25@gmail.com', NULL, NULL),
+(73, 'Melbourne cobras', 'Men Seniors - Saturday', 1, 'Jag', '438021094', 'Jagvir Gill', 'Gurpreet RAI', '0430121072. / 0438021094', 1, 'jag_gill23@yahoo.com.au', NULL, NULL),
+(74, 'Melbourne Dazzlers', 'Men Seniors - Saturday', 1, 'Anzor Yousuf', '415226784', 'Ibrahim Kabir', 'Founding member', '433564908', 1, 'melbournedazzlers@gmail.com', NULL, NULL),
+(75, 'Melbourne Eagles CC - North West', 'Men Seniors - Saturday', 1, 'Rohullah Habibi', '470369227', 'Mansoor Kazi', 'President', '431068938', 1, 'mansoorkazi@hotmail.com', NULL, NULL),
+(76, 'Melbourne Eagles CC - North West 1', 'Men Seniors - Sunday', 1, 'Rohullah Habibi', '470369227', 'Mansoor Kazi', 'President', '431068938', 1, 'mansoorkazi@hotmail.com', NULL, NULL),
+(77, 'Melbourne Eagles CC - SE U14 Juniors Boys', 'U-14 Mixed Junior\'s', 1, 'Rohullah Habibi', '470369227', 'Mansoor Kazi', 'President', '431068938', 1, 'mansoorkazi@hotmail.com', NULL, NULL),
+(78, 'Melbourne Eagles CC - South East', 'Men Seniors - Saturday', 2, 'Rohullah Habibi', '470369227', 'Mansoor Kazi', 'President', '431068938', 1, 'mansoorkazi@hotmail.com', NULL, NULL),
+(79, 'Melbourne Eagles CC - South East', 'Men Seniors - Sunday', 1, 'Rohullah Habibi', '470369227', 'Mansoor Kazi', 'President', '431068938', 1, 'mansoorkazi@hotmail.com', NULL, NULL),
+(80, 'Melbourne Falcons Cricket Club', 'Men Seniors - Saturday', 1, 'Sarvesh Prasad', '415618394', 'Hiroiz Chinoy', 'President', '433291975', 1, 'melbournefalcons@gmail.com', NULL, NULL),
+(81, 'Melbourne Flash Sports Club INC', 'Men Seniors - Saturday', 1, 'Harsha Rupasinghe', '425121748', 'Crishan Fernando', 'Secretary', '451132005', 1, 'flash.melbourne@gmail.com', NULL, NULL),
+(82, 'Melbourne Lankans', 'Men Seniors - Saturday', 1, 'Mahesh Perera', '433620380', 'Jude Mendiz', 'President', '433032411', 1, 'melbournelankans@gmail.com', NULL, NULL),
+(83, 'Melbourne Rhinos', 'Men Seniors - Saturday', 1, 'Gurmail Ghumman', '433953001', 'Sanjeev Barala', 'President', '409465391', 1, 'goldy.ghumman@gmail.com', NULL, NULL),
+(84, 'Melbourne Sixers Sports Club', 'Men Seniors - Saturday', 2, 'Gayan Ekanayake', '435848550', 'Don Thineth', 'Vice President', '426091450', 1, 'gkwekanayake@gmail.com', NULL, NULL),
+(85, 'Melbourne Sixers Sports Club', 'Men Seniors - Sunday', 1, 'Gayan Ekanayake', '435848550', 'Don Thineth', 'Vice President', '426091450', 1, 'gkwekanayake@gmail.com', NULL, NULL),
+(86, 'Melbourne Strikers Cricket Club', 'Men Seniors - Saturday', 1, 'Atul Mithsagar', '433974098', 'Anil Kumar', 'Secretary', '420505924', 1, 'atulmithsagar@yahoo.co.uk', NULL, NULL),
+(87, 'Melbourne Titans Sports Club', 'Men Seniors - Sunday', 1, 'Thilina Silva', '422836170', 'Sameera Ekanayake', 'President', '403725991', 1, 'thilina12300@gmail.com', NULL, NULL),
+(88, 'MELBOURNE TITANS SPORTS CLUB', 'Men Seniors - Saturday', 1, 'Thilina silva', '422836170', 'Sameera Ekanayake', 'President', '403725991', 1, 'thilina12300@gmail.com', NULL, NULL),
+(89, 'Melbourne united Cricket team', 'Men Seniors - Saturday', 2, 'Yakub Ali', '416617665', 'Yakub Ali', 'General Manager', '420506786', 1, 'au.manpreet@gmail.com', NULL, NULL),
+(90, 'Melbourne United Cricket Team', 'Men Seniors - Sunday', 1, 'Manpreet Singh', '416617665', 'Ashwin Vagdoda', 'General Manager', '402672144', 1, 'au.manpreet@gmail.com', NULL, NULL),
+(91, 'Melton Centrals', 'U-14 Mixed Junior\'s', 1, 'Brad Bonnici', '413219992', 'Chris Hulett', 'Secretary', '414795859', 1, 'juniors@meltoncentrals.com.au', NULL, NULL),
+(92, 'Merinda park', 'Men Seniors - Saturday', 2, 'Dylan Sanete', '431375675', 'Johnee Cuthbertson', 'Treasurer', '413695633', 1, 'dylan.sanete@gmail.com', NULL, NULL),
+(93, 'Mernda United', 'Men Seniors - Saturday', 3, 'Rangana Fernando', '404804121', 'Rashmika', 'Secretary', '422599399', 1, 'merndaunited@gmail.com', NULL, NULL),
+(94, 'Mernda United', 'Womens-Senior', 1, 'Rangana Fernando', '404804121', 'Rashmika', 'Secretary', '404804121', 1, 'merndaunited@gmail.com', NULL, NULL),
+(95, 'Merrifield panther cc', 'Men Seniors - Sunday', 2, 'Harmandeep bhathal', '433844964', 'Vishal', 'Vishal', '433844964', 1, 'merrifieldpantherscrixket@gmail.com', NULL, NULL),
+(96, 'Merrifield panthers cricket', 'Men Seniors - Saturday', 2, 'Harmandeep bhathal', '433844964', 'Vishal', 'Harman', '433844964', 1, 'merrifieldpantherscricket@gmail.com', NULL, NULL),
+(97, 'Monash University Cricket Club', 'Men Seniors - Saturday', 2, 'Stephen Pearson', '409780769', 'Dilshan Ranasinghe', 'President', '424500478', 1, 'stephen.r.pearson@gmail.com', NULL, NULL),
+(98, 'Monash University Cricket Club', 'Men Seniors - Sunday', 1, 'Stephen Pearson', '409780769', 'Dilshan Ranasinghe', 'President', '424500478', 1, 'stephen.r.pearson@gmail.com', NULL, NULL),
+(99, 'Monash University Cricket Club', 'Womens-Senior', 1, 'Stephen Pearson', '409780769', 'Suki Ali', 'Women\'s Administartor', '403931836', 1, 'stephen.r.pearson@gmail.com', NULL, NULL),
+(100, 'Moonee Valley Cricket Club', 'Men Seniors - Saturday', 1, 'Andreas Skiotis', '474852732', 'Charlie Walker', 'President', '411705381', 1, 'Charlie.walker@optusnet.com.au', NULL, NULL),
+(101, 'MPCL', 'Men Seniors - Saturday', 1, 'Nakul Pisolkar', '452526069', 'Suyog Mahajan', 'President (MPCL)', '459400227', 1, 'nakul_2510@yahoo.co.in', NULL, NULL),
+(102, 'Mt Waverley Cricket Club', 'Men Seniors - Saturday', 1, 'Anu Kulatunga', '409618678', 'Ian Boyle', 'Ian Boyle - Exco Member', '417399389', 1, 'anuruddhak@gmail.com', NULL, NULL),
+(103, 'Mt Waverley Cricket Club', 'U-14 Mixed Junior\'s', 1, 'Anu Kulatunga', '409618678', 'Ian Boyle', 'Executive Comittee Member', '417399389', 1, 'anuruddhak@gmail.com', NULL, NULL),
+(104, 'Narre Warren Cricket Club', 'U-14 Mixed Junior\'s', 3, 'Jatinder Pal Singh', '456786458', 'Kristine Simpson', 'Secretary', '425816187', 1, 'sec.nwcc@yahoo.com', NULL, NULL),
+(105, 'Newport Digman CC', 'Men Seniors - Saturday', 1, 'Simon Kingston', '430360550', 'Jack Ind', 'Assistant Secretary', '450246942', 1, 'simonk@conchem.com.au', NULL, NULL),
+(106, 'North Balwyn Cricket Club', 'U-14 Mixed Junior\'s', 1, 'Harry Wray', '405332219', 'John Fayeh', 'Club President', '407562027', 1, 'rbansal29@gmail.com', NULL, NULL),
+(107, 'Northern Bulls Cricket Club', 'Men Seniors - Saturday', 1, 'Raj Bhatia', '401939123', 'Tamara Darmenia', 'President', '408444095', 1, 'raj@westek.com.au', NULL, NULL),
+(108, 'Northern Bulls Cricket Club', 'Womens-Senior', 1, 'Steph Catherine', '432549248', 'Raj Bhatia', 'President', '401939123', 1, 'raj@westek.com.au', NULL, NULL),
+(109, 'Northern Lions Sports CLub', 'Men Seniors - Saturday', 1, 'Dulanjana Wickramatantri', '406507042', 'Kasun Gamlath', 'President', '430138283', 1, 'northernlions.committee@gmail.com', NULL, NULL),
+(110, 'NORTHERN RIDERS CRICKET CLUB', 'Men Seniors - Saturday', 2, 'MANDEEP SINGH', '413841614', 'BHUPINDER SINGH JACKY', 'BHUPINDERJIT SINGH JACKY', '413414931', 1, 'northernriderscc@gmail.com', NULL, NULL),
+(111, 'Oakleigh Cricket Club', 'Men Seniors - Saturday', 1, 'Robert Howes', '434036035', 'Anthony Howes', 'Anthony Howes', '448232369', 1, 'robert.w.howes@gmail.com', NULL, NULL),
+(112, 'Oakleigh Cricket Club', 'Men Seniors - Sunday', 1, 'Robert Howes', '434036035', 'Anthony Howes', 'Anthony Howes', '448232369', 1, 'robert.w.howes@gmail.com', NULL, NULL),
+(113, 'Pakenham Upper Toomuc Cricket Club', 'Men Seniors - Saturday', 1, 'James Stevenage', '401568521', 'Adam Tucker', 'President - Adam Tucker', '466046275', 1, 'yabbies.president@gmail.com', NULL, NULL),
+(114, 'Parkfield Cricket Club', 'Men Seniors - Saturday', 1, 'David Swierzbiolek', '434199687', 'Rukshan Muthukuda', 'Treasure', '449958865', 1, 'daveswiz26@gmail.com', NULL, NULL),
+(115, 'Plenty Valley Cricket Club', 'Men Seniors - Saturday', 1, 'Nitin Chaudhary', '435819176', 'Mona Chaudhary', '430235577', '430235577', 1, 'Nitinchaudhary24@icloud.com', NULL, NULL),
+(116, 'Plenty Valley women cc', 'Womens-Senior', 1, 'Mona Chaudhary', '430235577', 'Nitinchaudhary', 'Coach&Cordinatior', '435819176', 1, 'chaudharymona07@gmail.com', NULL, NULL),
+(117, 'Point Cook Cricket Club Inc', 'Men Seniors - Saturday', 2, 'Wayne Jones', '412366103', 'Adrian Farrier', 'President', '438368130', 1, 'cricket@pointcookcc.org.au', NULL, NULL),
+(118, 'Point Cook Cricket Club Inc', 'U-14 Mixed Junior\'s', 1, 'Wayne Jones', '412366103', 'Adrian Farrier', 'President', '438368130', 1, 'cricket@pointcookcc.org.au', NULL, NULL),
+(119, 'Point Cook Cricket Club Inc', 'Womens-Senior', 1, 'Wayne Jones', '412366103', 'Adrian Farrier', 'President', '438638130', 1, 'cricket@pointcookcc.org.au', NULL, NULL),
+(120, 'PowerHouse Cricket Club', 'Men Seniors - Sunday', 1, 'Gaurav Gupta', '413112328', 'Amit Gade', 'Treasurer', '413112328', 1, 'powerhousecricket@gmail.com', NULL, NULL),
+(121, 'Preston Druids', 'Men Seniors - Saturday', 1, 'Robert Montgomery', '488977796', 'Brad Whitfield', 'Brad Whitfield', '406406445', 1, 'rob.w.montgomery@gmail.com', NULL, NULL),
+(122, 'Punjab panthers cricket club', 'Men Seniors - Saturday', 1, 'Nitin garg', '466359644', 'Harkamal khokar', 'Administrator', '470448306', 1, 'gargnitin239@gmail.com', NULL, NULL),
+(123, 'REDS CRICKET CLUB', 'Men Seniors - Sunday', 1, 'Umar Khteeb', '470686852', 'Alec Kahn', 'Club President', '410938191', 1, 'akahn1717@gmail.com', NULL, NULL),
+(124, 'Reservoir Cobras Cricket Club', 'Men Seniors - Sunday', 1, 'Karan Sharma', '438268927', 'Brenda Hubber', 'Secretary', '413248186', 1, 'nmca.cobras@gmail.com', NULL, NULL),
+(125, 'Riverside Cricket Club', 'U-14 Mixed Junior\'s', 1, 'Kristy Doyle', '412888296', 'Shane Doyle', 'President Riverside Cricket Club', '407873228', 1, 'Juniors@riversidecricketclub.com.au', NULL, NULL),
+(126, 'RMIT Cricket Club', 'Men Seniors - Saturday', 2, 'Amit Sagar', '430461340', 'Danish Rehman', 'President', '423641386', 1, 'danishrehman37@gmail.com', NULL, NULL),
+(127, 'Roxburgh Park Broadmeadows Cricket Club', 'Men Seniors - Saturday', 2, 'Nikhil Khattar', '451020586', 'Gurpreet Sandhu', 'President', '455400455', 1, 'club.rpbcc@gmail.com', NULL, NULL),
+(128, 'Roxburgh Park Broadmeadows Cricket Club', 'Men Seniors - Sunday', 2, 'Nikhil Khattar', '451020586', 'Garry Sandhu', 'President', '455400455', 1, 'club.rpbcc@gmail.com', NULL, NULL),
+(129, 'Royal Park Reds', 'Men Seniors - Saturday', 1, 'Shaurya Aryavir', '450570831', 'Catherine McLeish', 'Secretary', '407779356', 1, 'aryavir16@gmail.com', NULL, NULL),
+(130, 'Sanctuary Lakes Cricket Club', 'Men Seniors - Saturday', 2, 'Mark Earl', '438101568', 'Brett Talbot', 'Vice President', '499800702', 1, 'president@slcricketclub.com.au', NULL, NULL),
+(131, 'Seabrook Cricket Club', 'Men Seniors - Saturday', 2, 'Bernard O\'Dwyer', '448360748', 'Nirav Parikh', 'Captain and committee member', '416047365', 1, 'bernardodwyer@yahoo.com.au', NULL, NULL),
+(132, 'Seabrook Cricket Club', 'Men Seniors - Sunday', 1, 'Bernard O’Dwyer', '448360748', 'Cameron Clamp', 'President', '432439365', 1, 'bernardodwyer@yahoo.com.au', NULL, NULL),
+(133, 'Seabrook Cricket Club', 'U-14 Mixed Junior\'s', 1, 'Bernard O’Dwyer', '448360748', 'Cameron Clamp', 'President', '432439365', 1, 'bernardodwyer@yahoo.com.au', NULL, NULL),
+(134, 'Singh sabha CC', 'Men Seniors - Saturday', 1, 'Gurmeet Singh', '405551661', 'Balbir Singh', '0434 670 361', '405551661', 1, 'gurmeet_mahar@yahoo.com', NULL, NULL),
+(135, 'South Caulfield Cricket Club', 'U-14 Mixed Junior\'s', 1, 'Mili Berera', '431536423', 'Jonathan Restarick', 'President', '417506377', 1, 'mili.berera@bsl.org.au', NULL, NULL),
+(136, 'South eastern stars', 'Men Seniors - Sunday', 1, 'Malik Hasan', '401532526', 'Malik Hasan', 'malik Hasan', '401532526', 1, 'brs.pty.ltd@hotmail.com', NULL, NULL),
+(137, 'Sports Gear Cricket Association Inc', 'Men Seniors - Saturday', 1, 'Anuveer Parmar', '469094853', 'Anuveer Parmar', 'Team Manager', '469094853', 1, 'foranuveer@yahoo.com', NULL, NULL),
+(138, 'Sports Gear Cricket Association Inc', 'Men Seniors - Sunday', 1, 'Anuveer Pamar', '469094853', 'Anuveer Parmar', 'President', '469094853', 1, 'foranuveer@yahoo.com', NULL, NULL),
+(139, 'St Andrews Gardiner Cricket Club', 'Men Seniors - Saturday', 1, 'Pes Kahawita', '433559875', 'Graham Bond', 'President', '448123060', 1, 'staccs1916@gmail.com', NULL, NULL),
+(140, 'St. Andrews (RDCA)', 'Men Seniors - Saturday', 2, 'Phillip Hall', '431096142', 'Matt Millar', 'President', '433925722', 1, 'thischristianguy@gmail.com', NULL, NULL),
+(141, 'Strathmore Heights', 'Men Seniors - Saturday', 1, 'Josh Fielding', '415562578', 'Josh McQueen', 'Secretary', '409419628', 1, 'joshfieldingshcc@gmail.com', NULL, NULL),
+(142, 'Sunrise cricket club', 'Men Seniors - Saturday', 1, 'Jay amin', '424427286', 'Jeel amin', 'Vice president', '424559286', 1, 'amunjay100@gmail.com', NULL, NULL),
+(143, 'Sunrisers cricket club', 'Men Seniors - Saturday', 1, 'Amreek mann', '433733207', 'Karanbir Tiwana', 'Committee member', '450702223', 1, 'mannamreek@yahoo.com.au', NULL, NULL),
+(144, 'Sunshine Heights Cricket Club', 'Men Seniors - Saturday', 2, 'Anujan Navaneethan', '419795021', 'Marcela Fuenzalida', 'Club Administrator', '416355567', 1, 'administrator@sunshineheightscc.onmicrosoft.com', NULL, NULL),
+(145, 'Surrey Hills Cricket Club', 'Men Seniors - Saturday', 1, 'Mal Campbell', '411253423', 'Barry cull', 'secretary', '408103971', 1, 'malcolm@compasspartners.com.au', NULL, NULL),
+(146, 'Tarneit Central Cricket Club', 'Men Seniors - Saturday', 2, 'Daljit Singh', '404352582', 'Amrit Bhangu', 'President', '456429418', 1, 'tarneitcentralcricketclub@gmail.com', NULL, NULL),
+(147, 'Toorak Prahran Cricket Club', 'Men Seniors - Saturday', 1, 'Yuvaraj Jagadeesan', '433304867', 'Rob Ary', 'TPCC Secretary', '407311032', 1, 'yjagadeesan@gmail.com', NULL, NULL),
+(148, 'Truganina United Cricket Club / Royal Bengal Sports cvlub', 'U-14 Mixed Junior\'s', 2, 'Emu Hoque', '425964444', 'Mizanur Rahman', 'Executive Member', '426211087', 1, 'amdad_aus@yahoo.com', NULL, NULL),
+(149, 'United Tarneit Sports Club', 'Men Seniors - Saturday', 2, 'Devan Ranaweera', '431818695', 'Gary Bandara', 'Vice President', '401461666', 1, 'dadranaweera@gmail.com', NULL, NULL),
+(150, 'United Wyndham Sports Club', 'Men Seniors - Saturday', 1, 'Venki Balasubramanian', '430474599', 'Qaiser Jamil', 'Committee Member', '430799947', 1, 'uwsc.members@gmail.com', NULL, NULL),
+(151, 'Victorian Vikings', 'Men Seniors - Saturday', 1, 'Amit Mahindrakar', '402072698', 'Vipan Kumar', 'President', '433897882', 1, 'amit.mahindrakar14@outlook.com', NULL, NULL),
+(152, 'Wantirna South', 'Men Seniors - Saturday', 1, 'Steve Cardilini', '413019003', 'Ashley Webb', 'President', '411432825', 1, 'vadars1@bigpond.com', NULL, NULL),
+(153, 'West Point Cricket Club', 'Men Seniors - Saturday', 1, 'Mitesh Patel', '422389757', 'Rahul Patel', 'President', '428182175', 1, 'Mitesh@live.com.au', NULL, NULL),
+(154, 'West Point Cricket Club', 'U-14 Mixed Junior\'s', 2, 'Hemal Doshi', '411372889', 'Bhumesh Patel', 'Jnr President', '423752754', 1, 'Mitesh@live.com.au', NULL, NULL),
+(155, 'West preston sharks', 'Men Seniors - Sunday', 1, 'Andrew phelps', '415104778', 'Ambar Barot', 'Ambar Barot', '432413226', 1, 'jajaco_ajp@hotmail.com', NULL, NULL),
+(156, 'Western Eagles Sports Club', 'Men Seniors - Saturday', 2, 'Muadh Fawwaz', '426064559', 'Anvar', 'Treasurer', '430110727', 1, 'muadhfawwaz@hotmail.com', NULL, NULL),
+(157, 'Westgate Cricket Club', 'Men Seniors - Saturday', 1, 'Anand Nagaraj', '469603027', 'Sree Sridharan', 'Secretary', '404212866', 1, 'australiaindiasportsclub@gmail.cob', NULL, NULL),
+(158, 'Williams Landing Sports Club', 'U-14 Mixed Junior\'s', 1, 'Amol Itankar', '421762908', 'Rajat Saraswat', 'President', '433113012', 1, 'wlscmarshalls@outlook.com', NULL, NULL),
+(159, 'Yarra-United Cricket Club Inc', 'Men Seniors - Saturday', 1, 'Rajinder Mishra', '416070786', 'Pratibha Mishra', 'Secretary', '421806855', 1, 'rajpreeti_mishra@rediffmail.com', NULL, NULL),
+(160, 'Pascoe Vale Central Cricket Club', 'Womens-Senior', 1, 'Jacqui Campbell', '408042059', 'Jacqui Campbell', 'Rachel O\'Riordan', '432211807', 1, 'saunderj@bigpond.net.au', NULL, '2023-07-13 04:58:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comment` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `entity` int(11) NOT NULL DEFAULT 0 COMMENT '0 => posts, 1 => products',
+  `entity_id` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 => new, 1 => replied',
+  `show` int(11) NOT NULL DEFAULT 0 COMMENT '0 => no show, 1 => show',
+  `is_approved` int(11) NOT NULL DEFAULT 0 COMMENT '0 => not approved, 1 => approved',
+  `reply_allowed` int(11) NOT NULL DEFAULT 1 COMMENT '0 => replies not allowed, 1 => replies allowed',
+  `type` int(11) NOT NULL DEFAULT 0 COMMENT '0 => comments, 1 => reviews',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_replies`
+--
+
+CREATE TABLE `comment_replies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `reply` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `email_settings`
+--
+
+CREATE TABLE `email_settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `mailer` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `host` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `port` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `encryption` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `from_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `from_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 => inactive, 1 => active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `email_settings`
+--
+
+INSERT INTO `email_settings` (`id`, `mailer`, `host`, `port`, `username`, `password`, `encryption`, `from_address`, `from_name`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'smtp', 'smtp.googlemail.com', '587', 'noreply.midyearcricket@gmail.com', 'thpnoelenpklpkjs', 'tls', 'noreply.midyearcricket@gmail.com', 'Mid Year Cricket Association', 1, '2023-06-15 22:38:23', '2023-06-15 22:38:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forms`
+--
+
+CREATE TABLE `forms` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 => inactive, 1 => active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `general_settings`
+--
+
+CREATE TABLE `general_settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `setting_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `general_settings`
+--
+
+INSERT INTO `general_settings` (`id`, `setting_key`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'site_name', 'Mid Year Cricket Association', NULL, '2023-06-15 00:26:15'),
+(2, 'site_description', 'Mid Year Cricket Association', NULL, '2023-06-15 00:26:15'),
+(3, 'site_logo', 'images/uploads/logo/1689598080.png', NULL, '2023-07-17 07:18:01'),
+(4, 'analytics', NULL, NULL, NULL),
+(5, 'facebook_link', 'https://www.facebook.com/profile.php?id=100064818003392', NULL, '2023-06-15 00:35:10'),
+(6, 'instagram_link', 'https://www.playhq.com/', NULL, '2023-07-13 05:46:06'),
+(7, 'twitter_link', 'https://twitter.com/mid_year', NULL, '2023-06-15 00:35:10'),
+(8, 'youtube_link', '', NULL, NULL),
+(9, 'inquiry_email', 'info@wintercricket.com.au', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `type` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `src` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 => no show, 1 => show',
+  `heading` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `caption` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `entity` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'can be a post image product image etc',
+  `entity_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `is_featured` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `type`, `category_id`, `src`, `alt_text`, `status`, `heading`, `caption`, `entity`, `entity_id`, `created_at`, `updated_at`, `is_featured`) VALUES
+(7, 1, NULL, 'images/uploads/posts/1688039128.png', NULL, 0, NULL, NULL, 'post', 1, '2023-06-21 23:18:28', '2023-06-29 06:15:28', 1),
+(8, NULL, NULL, 'images/uploads/posts/1688039136.png', NULL, 0, NULL, NULL, 'post', 1, '2023-06-21 23:20:53', '2023-06-29 06:15:36', 0),
+(9, NULL, NULL, 'images/uploads/posts/1688039146.png', NULL, 0, NULL, NULL, 'post', 1, '2023-06-21 23:20:53', '2023-06-29 06:15:46', 0),
+(10, NULL, NULL, 'images/uploads/posts/1688039154.png', NULL, 0, NULL, NULL, 'post', 1, '2023-06-21 23:20:53', '2023-06-29 06:15:54', 0),
+(11, NULL, NULL, 'images/uploads/posts/1688038283.png', NULL, 0, NULL, NULL, 'post', 1, '2023-06-21 23:20:54', '2023-06-29 06:01:23', 0),
+(12, NULL, NULL, 'images/uploads/posts/1688038284.png', NULL, 0, NULL, NULL, 'post', 1, '2023-06-21 23:20:54', '2023-06-29 06:01:24', 0),
+(13, NULL, NULL, 'images/uploads/posts/1688039163.png', NULL, 0, NULL, NULL, 'post', 1, '2023-06-21 23:20:54', '2023-06-29 06:16:03', 0),
+(14, 1, NULL, 'images/uploads/posts/1688039179.png', NULL, 0, NULL, NULL, 'post', 2, '2023-06-21 23:35:45', '2023-06-29 06:16:19', 1),
+(15, NULL, NULL, 'images/uploads/posts/1688039189.png', NULL, 0, NULL, NULL, 'post', 2, '2023-06-21 23:36:08', '2023-06-29 06:16:29', 0),
+(16, NULL, NULL, 'images/uploads/posts/1688039196.png', NULL, 0, NULL, NULL, 'post', 2, '2023-06-21 23:36:08', '2023-06-29 06:16:36', 0),
+(17, NULL, NULL, 'images/uploads/posts/1688039205.png', NULL, 0, NULL, NULL, 'post', 2, '2023-06-21 23:36:08', '2023-06-29 06:16:45', 0),
+(18, NULL, NULL, 'images/uploads/posts/1688039217.png', NULL, 0, NULL, NULL, 'post', 2, '2023-06-21 23:36:08', '2023-06-29 06:16:57', 0),
+(19, NULL, NULL, 'images/uploads/posts/1688039226.png', NULL, 0, NULL, NULL, 'post', 2, '2023-06-21 23:36:08', '2023-06-29 06:17:06', 0),
+(20, NULL, NULL, 'images/uploads/posts/1688039234.png', NULL, 0, NULL, NULL, 'post', 2, '2023-06-21 23:36:09', '2023-06-29 06:17:14', 0),
+(21, NULL, NULL, 'images/uploads/posts/1688039241.png', NULL, 0, NULL, NULL, 'post', 2, '2023-06-21 23:36:09', '2023-06-29 06:17:25', 0),
+(22, NULL, 5, 'images/uploads/gallery/1689151234.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-12 03:10:34', '2023-07-12 03:10:34', 0),
+(23, NULL, 5, 'images/uploads/gallery/1689151509.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-12 03:15:09', '2023-07-12 03:15:09', 0),
+(24, NULL, 5, 'images/uploads/gallery/1689151525.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-12 03:15:25', '2023-07-12 03:15:25', 0),
+(33, NULL, 5, 'images/uploads/gallery/1689240901.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:05:01', '2023-07-13 04:05:01', 0),
+(34, NULL, 5, 'images/uploads/gallery/1689240914.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:05:14', '2023-07-13 04:05:14', 0),
+(35, NULL, 5, 'images/uploads/gallery/1689240928.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:05:28', '2023-07-13 04:05:28', 0),
+(36, NULL, 5, 'images/uploads/gallery/1689241052.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:07:32', '2023-07-13 04:07:32', 0),
+(37, NULL, 5, 'images/uploads/gallery/1689241069.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:07:49', '2023-07-13 04:07:49', 0),
+(38, NULL, 5, 'images/uploads/gallery/1689241083.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:08:03', '2023-07-13 04:08:03', 0),
+(39, NULL, 5, 'images/uploads/gallery/1689241112.jpg', 'REP Game 2023', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:08:32', '2023-07-13 04:08:32', 0),
+(40, NULL, 6, 'images/uploads/gallery/1689241211.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:10:11', '2023-07-16 23:44:31', 0),
+(41, NULL, 6, 'images/uploads/gallery/1689241301.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:11:41', '2023-07-16 23:44:21', 0),
+(42, NULL, 6, 'images/uploads/gallery///1689241316.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:11:44', '2023-07-16 23:44:13', 0),
+(43, NULL, 6, 'images/uploads/gallery/1689241328.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:12:08', '2023-07-16 23:44:05', 0),
+(44, NULL, 6, 'images/uploads/gallery/1689241339.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:12:19', '2023-07-16 23:43:55', 0),
+(45, NULL, 6, 'images/uploads/gallery/1689241351.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:12:31', '2023-07-16 23:43:46', 0),
+(46, NULL, 6, 'images/uploads/gallery/1689241366.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:12:46', '2023-07-16 23:43:37', 0),
+(47, NULL, 6, 'images/uploads/gallery/1689241376.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:12:56', '2023-07-16 23:43:29', 0),
+(48, NULL, 6, 'images/uploads/gallery/1689241384.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-13 04:13:04', '2023-07-16 23:43:01', 0),
+(49, NULL, 6, 'images/uploads/gallery/1689570991.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:46:31', '2023-07-16 23:46:31', 0),
+(50, NULL, 6, 'images/uploads/gallery/1689571008.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:46:48', '2023-07-16 23:46:48', 0),
+(51, NULL, 6, 'images/uploads/gallery/1689571028.jpg', '2023 Season', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:47:08', '2023-07-16 23:47:08', 0),
+(52, NULL, 7, 'images/uploads/gallery/1689571418.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:53:38', '2023-07-16 23:54:28', 0),
+(53, NULL, 7, 'images/uploads/gallery/1689571452.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:54:12', '2023-07-16 23:54:12', 0),
+(54, NULL, 7, 'images/uploads/gallery/1689571519.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:55:19', '2023-07-16 23:55:19', 0),
+(55, NULL, 7, 'images/uploads/gallery/1689571549.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:55:49', '2023-07-16 23:55:49', 0),
+(56, NULL, 7, 'images/uploads/gallery/1689571573.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:56:13', '2023-07-16 23:56:13', 0),
+(57, NULL, 7, 'images/uploads/gallery/1689571600.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:56:40', '2023-07-16 23:56:40', 0),
+(58, NULL, 7, 'images/uploads/gallery/1689571627.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:57:07', '2023-07-16 23:57:07', 0),
+(59, NULL, 7, 'images/uploads/gallery/1689571659.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:57:39', '2023-07-16 23:57:39', 0),
+(60, NULL, 7, 'images/uploads/gallery/1689571688.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:58:08', '2023-07-16 23:58:08', 0),
+(61, NULL, 7, 'images/uploads/gallery/1689571718.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:58:38', '2023-07-16 23:58:38', 0),
+(62, NULL, 7, 'images/uploads/gallery/1689571754.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:59:14', '2023-07-16 23:59:14', 0),
+(63, NULL, 7, 'images/uploads/gallery/1689571785.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-16 23:59:45', '2023-07-16 23:59:45', 0),
+(64, NULL, 7, 'images/uploads/gallery/1689571831.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-17 00:00:31', '2023-07-17 00:00:31', 0),
+(65, NULL, 7, 'images/uploads/gallery/1690524584.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:39:44', '2023-07-28 00:39:44', 0),
+(66, NULL, 7, 'images/uploads/gallery/1690524597.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:39:57', '2023-07-28 00:39:57', 0),
+(67, NULL, 7, 'images/uploads/gallery/1690524611.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:40:11', '2023-07-28 00:40:11', 0),
+(68, NULL, 7, 'images/uploads/gallery/1690524625.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:40:25', '2023-07-28 00:40:25', 0),
+(69, NULL, 7, 'images/uploads/gallery/1690524638.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:40:38', '2023-07-28 00:40:38', 0),
+(70, NULL, 7, 'images/uploads/gallery/1690524652.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:40:52', '2023-07-28 00:40:52', 0),
+(71, NULL, 7, 'images/uploads/gallery/1690524668.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:41:08', '2023-07-28 00:41:08', 0),
+(72, NULL, 7, 'images/uploads/gallery/1690524688.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:41:28', '2023-07-28 00:41:28', 0),
+(73, NULL, 7, 'images/uploads/gallery/1690524707.jpg', '2022 Season and before', 1, NULL, NULL, 'gallery', NULL, '2023-07-28 00:41:47', '2023-07-28 00:41:47', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2021_12_09_101328_add_columns_to_users_table', 1),
+(6, '2021_12_09_114336_create_table_roles', 1),
+(7, '2021_12_10_091632_create_categories_table', 1),
+(8, '2021_12_10_112107_create_tags_table', 1),
+(9, '2021_12_13_040451_create_posts_table', 1),
+(10, '2021_12_16_082612_create_comments_table', 1),
+(11, '2021_12_16_090052_create_comment_replies_table', 1),
+(12, '2021_12_17_090618_create_tag_post_table', 1),
+(13, '2021_12_20_090142_create_pages_table', 1),
+(14, '2021_12_20_091207_create_page_descriptions_table', 1),
+(15, '2021_12_20_091952_create_page_meta_data', 1),
+(16, '2021_12_21_052302_add_column_category_image_to_categories_table', 1),
+(17, '2021_12_21_055842_add_column_user_image_to_users_table', 1),
+(18, '2021_12_23_073933_add_column_permission_type_to_permissions_table', 1),
+(19, '2021_12_28_074213_create_images_table', 1),
+(20, '2021_12_28_074717_create_general_settings_table', 1),
+(21, '2021_12_28_102416_add_columns_to_posts_table', 1),
+(22, '2021_12_29_064855_add_column_slug_to_posts_table', 1),
+(23, '2021_12_31_045951_add_seo_columns_to_categories_table', 1),
+(24, '2021_12_31_054657_add_canonical_url_column_to_page_meta_data_table', 1),
+(25, '2021_12_31_055751_rename_columns_in_page_meta_data_table', 1),
+(26, '2022_01_03_065540_create_site_settings_table', 1),
+(27, '2022_01_03_084539_create_site_templates_table', 1),
+(28, '2022_01_03_114521_add_column_alt_text_to_images_table', 1),
+(29, '2022_01_05_102410_create_user_subscriptions_table', 1),
+(30, '2022_01_06_044841_create_email_settings_table', 1),
+(31, '2022_01_07_084902_add_reset_token_to_users_table', 1),
+(32, '2022_01_10_030610_add_image_columns_to_images_table', 1),
+(33, '2022_01_10_065724_create_sub_categories_table', 1),
+(34, '2022_01_10_070524_add_page-banner_to_pages_table', 1),
+(35, '2022_01_10_121222_add_column_to_pages_table', 1),
+(36, '2022_01_10_150204_add_template_image_to_site_templates_table', 1),
+(37, '2022_01_10_150928_add_banner_template_to_site_settings_table', 1),
+(38, '2023_06_09_041352_remove_comment_in_type_column_posts_table', 2),
+(39, '2023_06_09_052153_create_sponsors_table', 3),
+(40, '2023_06_09_104723_create_user_inquiries_table', 4),
+(42, '2023_06_12_034158_create_resources_table', 5),
+(43, '2023_06_12_044609_create_forms_table', 6),
+(44, '2023_06_13_063844_create_rules_table', 6),
+(45, '2023_06_14_091223_add_column_is_featured_images_table', 7),
+(46, '2023_06_19_100423_add_column_is_post_table', 8),
+(47, '2023_06_20_080109_add_pdf_column_to_rules_table', 9),
+(48, '2023_06_21_075224_drop_table_resources', 10),
+(51, '2023_06_21_080055_create_club_contacts_table', 11),
+(52, '2023_06_27_102934_create_resource_table', 12),
+(53, '2023_06_28_082600_add_colum_category_id_to_category_table', 12),
+(54, '2023_06_29_080108_add_column_to_club_contacts_table', 12),
+(55, '2023_07_13_112041_add_is_super_column_to_users_table', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_heading` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `page_banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `visibility` text COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '0 => hidden, 1 => visible',
+  `entered_by` bigint(20) DEFAULT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page_descriptions`
+--
+
+CREATE TABLE `page_descriptions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_id` bigint(20) NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `language_id` bigint(20) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page_meta_data`
+--
+
+CREATE TABLE `page_meta_data` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_id` bigint(20) NOT NULL,
+  `page_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_tag_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keywords` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `canonical_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'view_posts', 'blog', NULL, NULL),
+(2, 'add_posts', 'blog', NULL, NULL),
+(3, 'edit_posts', 'blog', NULL, NULL),
+(4, 'delete_posts', 'blog', NULL, NULL),
+(5, 'view_categories', 'category', NULL, NULL),
+(6, 'add_categories', 'category', NULL, NULL),
+(7, 'edit_categories', 'category', NULL, NULL),
+(8, 'delete_categories', 'category', NULL, NULL),
+(9, 'view_users', 'user', NULL, NULL),
+(10, 'add_users', 'user', NULL, NULL),
+(11, 'add_permissions', 'user', NULL, NULL),
+(12, 'view_permissions', 'settings', NULL, NULL),
+(13, 'site_settings', 'settings', NULL, NULL),
+(14, 'edit_permissions', 'settings', NULL, NULL),
+(15, 'delete_permissions', 'settings', NULL, NULL),
+(16, 'view_advertisements', 'advertisements', NULL, NULL),
+(17, 'add_advertisements', 'advertisements', NULL, NULL),
+(18, 'edit_advertisements', 'advertisements', NULL, NULL),
+(19, 'delete_advertisements', 'advertisements', NULL, NULL),
+(20, 'edit_users', 'user', NULL, NULL),
+(21, 'view_subscriptions', 'subscribe', NULL, NULL),
+(22, 'view_sponsors', 'sponsors', NULL, NULL),
+(23, 'add_sponsors', 'sponsors', NULL, NULL),
+(24, 'remove_sponsors', 'sponsors', NULL, NULL),
+(25, 'edit_sponsors', 'sponsors', NULL, NULL),
+(26, 'update_sponsors', 'sponsors', NULL, NULL),
+(27, 'add_contacts', 'contacts', NULL, NULL),
+(28, 'edit_contacts', 'contacts', NULL, NULL),
+(29, 'remove_contacts', 'contacts', NULL, NULL),
+(30, 'view_contacts', 'contacts', NULL, NULL),
+(31, 'update_contacts', 'contacts', NULL, NULL),
+(32, 'add_rule', 'rules', NULL, NULL),
+(33, 'edit_rule', 'rules', NULL, NULL),
+(34, 'view_rule', 'rules', NULL, NULL),
+(35, 'remove_rule', 'rules', NULL, NULL),
+(36, 'add_forms', 'forms', NULL, NULL),
+(37, 'edit_forms', 'forms', NULL, NULL),
+(38, 'delete_forms', 'forms', NULL, NULL),
+(39, 'view_forms', 'forms', NULL, NULL),
+(40, 'view_gallery', 'gallery', NULL, NULL),
+(41, 'add_gallery', 'gallery', NULL, NULL),
+(42, 'remove_gallery', 'gallery', NULL, NULL),
+(43, 'edit_gallery', 'gallery', NULL, NULL),
+(44, 'view_resources', 'resources', NULL, NULL),
+(45, 'add_resources', 'resources', NULL, NULL),
+(46, 'edit_resources', 'resources', NULL, NULL),
+(47, 'delete_resources', 'resources', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 => draft, 1 => published',
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `featured` int(11) NOT NULL DEFAULT 0,
+  `type` int(11) NOT NULL DEFAULT 0 COMMENT '0 > event, 1 > news',
+  `user_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `is_approved` int(11) NOT NULL COMMENT '0 => not approved, 1 => approved',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `event_date_time` timestamp NULL DEFAULT NULL,
+  `location` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `body`, `status`, `slug`, `featured`, `type`, `user_id`, `category_id`, `is_approved`, `created_at`, `updated_at`, `event_date_time`, `location`) VALUES
+(1, 'Mid Year Cricket Association Event', '<p>Welcome to 2023 Sportsfans! We are thrilled to kick off another fantastic year of MYCA cricket. Prepare for thrilling matches, fierce competition, and unforgettable moments on the field. Below, you will find the proposed playing dates for 2023. We kindly request all teams to secure their grounds promptly by coordinating with the relevant council or school. This will ensure smooth operations and allow us to deliver an exceptional cricketing experience for all participants. Get ready for an action-packed season and let&#39;s make 2023 a year to remember in MYCA cricket!</p>', 1, 'event-1', 1, 0, 1, NULL, 1, '2023-06-21 23:18:28', '2023-07-13 04:03:20', '2023-06-22 06:45:00', 'Australia'),
+(2, 'Mid Year Cricket Association News', '<p>A big shoutout to Sixers Australia for their incredible support towards our representative teams! We extend our heartfelt gratitude for their contribution to our cricketing community.</p>\r\n\r\n<p>A special congratulations goes to Dilan Chandimal from United Tarneit Sports Club, who was awarded the Player of the Match. Dilan&#39;s exceptional performance included involvement in all the run outs, but it was his game-winning moment on the last ball with a direct hit throw from deep that sealed the victory for VIC, as NSW attempted to tie the game by going for their second run. Well done, Dilan!</p>\r\n\r\n<p>In the upcoming weeks, the VIC team will embark on a journey to QLD, where they will compete in two exhilarating matches. We are thrilled to nurture our newfound partnership with QLD and look forward to the growth and success that lies ahead.</p>\r\n\r\n<p>Stay tuned for more thrilling updates and inspiring performances from our cricketing community. Let&#39;s continue to celebrate the spirit of the game!</p>', 1, 'news-1', 1, 1, 2, NULL, 1, '2023-06-21 23:35:45', '2023-08-08 00:06:28', '2023-06-21 19:03:00', 'Australia');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post_tag`
+--
+
+CREATE TABLE `post_tag` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL,
+  `tag_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `resources`
+--
+
+CREATE TABLE `resources` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pdf_src` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT '0=>inactive, 1=>active',
+  `type` int(11) NOT NULL DEFAULT 0 COMMENT '0=>resource',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `resources`
+--
+
+INSERT INTO `resources` (`id`, `title`, `description`, `pdf_src`, `status`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'MYCA Constitution', 'MYCA Constitution', 'documents/resources/1688036235.pdf', 1, 0, '2023-06-29 05:27:15', '2023-06-29 05:27:15'),
+(2, 'MYCA Grade Secretaries Contacts 23', 'MYCA Grade Secretaries Contacts 23', 'documents/resources/1688036261.pdf', 1, 0, '2023-06-29 05:27:41', '2023-06-29 05:27:41'),
+(3, 'Delegates Presentation 2023', 'Delegates Presentation 2023', 'documents/resources/1687866701.pdf', 1, 0, '2023-06-29 10:56:44', '2023-06-29 10:56:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 => inactive, 1 => active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `role_name`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 1, NULL, NULL),
+(2, 'User', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rules`
+--
+
+CREATE TABLE `rules` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 => inactive, 1 => active',
+  `pdf_src` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `rules`
+--
+
+INSERT INTO `rules` (`id`, `title`, `description`, `status`, `pdf_src`, `created_at`, `updated_at`) VALUES
+(1, 'MYCA Junior Rules', '<p>MYCA Junior Rules</p>', 1, 'files/uploads/rules/junior myca rules final.pdf', '2023-06-21 23:48:44', '2023-06-29 05:20:31'),
+(2, 'MYCA Senior Mens & Women\'s Rules', '<p>MYCA Senior Mens &amp; Women&#39;s Rules</p>', 1, 'files/uploads/rules/myca rules 2023-final 1.1.pdf', '2023-06-21 23:50:06', '2023-06-21 23:50:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_settings`
+--
+
+CREATE TABLE `site_settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `section` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner_template` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `template_number` bigint(20) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_templates`
+--
+
+CREATE TABLE `site_templates` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `section` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `template_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `template_number` bigint(20) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sponsors`
+--
+
+CREATE TABLE `sponsors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `src` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 => inactive, 1 => active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sponsors`
+--
+
+INSERT INTO `sponsors` (`id`, `title`, `src`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'CWM', 'images/uploads/sponsors_logo///1688040424.png', 1, '2023-06-09 02:34:10', '2023-06-29 06:37:04'),
+(3, 'Deshmukh', 'images/uploads/sponsors_logo///1688040406.png', 1, '2023-06-09 02:44:37', '2023-06-29 06:36:46'),
+(5, 'Rep Game', 'images/uploads/sponsors_logo///1688040385.png', 1, '2023-06-09 03:55:23', '2023-06-29 06:36:25'),
+(6, 'kookabura', 'images/uploads/sponsors_logo///1688040369.png', 1, '2023-06-09 03:56:10', '2023-06-29 06:36:09'),
+(8, 'Stag', 'images/uploads/sponsors_logo///1688039698.png', 1, '2023-06-21 23:15:19', '2023-08-08 00:13:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_categories`
+--
+
+CREATE TABLE `sub_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) DEFAULT NULL,
+  `sub_category_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sub_category_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT '0 => inactive, 1 => active',
+  `sub_category_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `canonical_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keywords` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_tag_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `page_title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tags`
+--
+
+CREATE TABLE `tags` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tag_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` int(11) NOT NULL COMMENT '0 => Post, 1 => Product',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `is_super` int(11) NOT NULL DEFAULT 0,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dob` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL COMMENT '0 => inactive, 1 => active',
+  `role_id` int(11) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password_reset_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `is_super`, `email`, `phone`, `last_name`, `first_name`, `username`, `dob`, `status`, `role_id`, `email_verified_at`, `password`, `remember_token`, `password_reset_token`, `user_image`, `created_at`, `updated_at`) VALUES
+(1, 0, 'administrator@midyearcricket.com', '6141234567', 'Admin', 'MYCA', 'administrator@midyearcricket.com', '2022-05-25', 1, 1, NULL, '$2y$10$44WrV9WytLKiAkj8y0AhhOZ8HAiY6Giz2DjF/ZkodobCdVsU8Au.K', NULL, NULL, 'images/uploads/users/1690525062.png', '2023-02-06 22:54:16', '2023-07-28 00:47:42'),
+(2, 1, 'superadmin@midyearcricket.com', '07144444444', 'SuperA', 'MYCA', 'superadmin@midyearcricket.com', '2023-07-13', 1, 1, NULL, '$2y$10$D6LnOf25ZcWS5irddjwWs.YKKrHDGuorqPTr2Zsx7os1sScomFPI6', NULL, NULL, NULL, NULL, '2023-07-18 23:18:54'),
+(3, 1, 'admin@midyearcricket.com', '07155555555', 'Admin', 'MYCA-Web', 'admin@midyearcricket.com', '2023-07-13', 1, 1, NULL, '$2y$10$TgT2FBmo.ZSfBj6nbGsVEeFDDwo1h2Y1ky.qFCDXeyhY3gNEZtruW', NULL, NULL, NULL, NULL, '2023-07-18 23:17:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_has_permissions`
+--
+
+CREATE TABLE `user_has_permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_has_permissions`
+--
+
+INSERT INTO `user_has_permissions` (`id`, `user_id`, `permission_id`, `created_at`, `updated_at`) VALUES
+(719, 3, 1, NULL, NULL),
+(720, 3, 2, NULL, NULL),
+(721, 3, 3, NULL, NULL),
+(722, 3, 4, NULL, NULL),
+(723, 3, 5, NULL, NULL),
+(724, 3, 6, NULL, NULL),
+(725, 3, 7, NULL, NULL),
+(726, 3, 8, NULL, NULL),
+(727, 3, 9, NULL, NULL),
+(728, 3, 10, NULL, NULL),
+(729, 3, 11, NULL, NULL),
+(730, 3, 20, NULL, NULL),
+(731, 3, 16, NULL, NULL),
+(732, 3, 17, NULL, NULL),
+(733, 3, 18, NULL, NULL),
+(734, 3, 19, NULL, NULL),
+(735, 3, 21, NULL, NULL),
+(736, 3, 22, NULL, NULL),
+(737, 3, 23, NULL, NULL),
+(738, 3, 24, NULL, NULL),
+(739, 3, 25, NULL, NULL),
+(740, 3, 26, NULL, NULL),
+(741, 3, 27, NULL, NULL),
+(742, 3, 28, NULL, NULL),
+(743, 3, 29, NULL, NULL),
+(744, 3, 30, NULL, NULL),
+(745, 3, 31, NULL, NULL),
+(746, 3, 32, NULL, NULL),
+(747, 3, 33, NULL, NULL),
+(748, 3, 34, NULL, NULL),
+(749, 3, 35, NULL, NULL),
+(750, 3, 36, NULL, NULL),
+(751, 3, 37, NULL, NULL),
+(752, 3, 38, NULL, NULL),
+(753, 3, 39, NULL, NULL),
+(754, 3, 40, NULL, NULL),
+(755, 3, 41, NULL, NULL),
+(756, 3, 42, NULL, NULL),
+(757, 3, 43, NULL, NULL),
+(758, 3, 44, NULL, NULL),
+(759, 3, 45, NULL, NULL),
+(760, 3, 46, NULL, NULL),
+(761, 3, 47, NULL, NULL),
+(762, 1, 1, NULL, NULL),
+(763, 1, 2, NULL, NULL),
+(764, 1, 3, NULL, NULL),
+(765, 1, 4, NULL, NULL),
+(766, 1, 5, NULL, NULL),
+(767, 1, 6, NULL, NULL),
+(768, 1, 7, NULL, NULL),
+(769, 1, 8, NULL, NULL),
+(770, 1, 9, NULL, NULL),
+(771, 1, 10, NULL, NULL),
+(772, 1, 11, NULL, NULL),
+(773, 1, 20, NULL, NULL),
+(774, 1, 16, NULL, NULL),
+(775, 1, 17, NULL, NULL),
+(776, 1, 18, NULL, NULL),
+(777, 1, 19, NULL, NULL),
+(778, 1, 21, NULL, NULL),
+(779, 1, 22, NULL, NULL),
+(780, 1, 23, NULL, NULL),
+(781, 1, 24, NULL, NULL),
+(782, 1, 25, NULL, NULL),
+(783, 1, 26, NULL, NULL),
+(784, 1, 27, NULL, NULL),
+(785, 1, 28, NULL, NULL),
+(786, 1, 29, NULL, NULL),
+(787, 1, 30, NULL, NULL),
+(788, 1, 31, NULL, NULL),
+(789, 1, 32, NULL, NULL),
+(790, 1, 33, NULL, NULL),
+(791, 1, 34, NULL, NULL),
+(792, 1, 35, NULL, NULL),
+(793, 1, 36, NULL, NULL),
+(794, 1, 37, NULL, NULL),
+(795, 1, 38, NULL, NULL),
+(796, 1, 39, NULL, NULL),
+(797, 1, 40, NULL, NULL),
+(798, 1, 41, NULL, NULL),
+(799, 1, 42, NULL, NULL),
+(800, 1, 43, NULL, NULL),
+(801, 1, 44, NULL, NULL),
+(802, 1, 45, NULL, NULL),
+(803, 1, 46, NULL, NULL),
+(804, 1, 47, NULL, NULL),
+(848, 2, 1, NULL, NULL),
+(849, 2, 2, NULL, NULL),
+(850, 2, 3, NULL, NULL),
+(851, 2, 4, NULL, NULL),
+(852, 2, 5, NULL, NULL),
+(853, 2, 6, NULL, NULL),
+(854, 2, 7, NULL, NULL),
+(855, 2, 8, NULL, NULL),
+(856, 2, 9, NULL, NULL),
+(857, 2, 10, NULL, NULL),
+(858, 2, 11, NULL, NULL),
+(859, 2, 20, NULL, NULL),
+(860, 2, 12, NULL, NULL),
+(861, 2, 13, NULL, NULL),
+(862, 2, 14, NULL, NULL),
+(863, 2, 15, NULL, NULL),
+(864, 2, 16, NULL, NULL),
+(865, 2, 17, NULL, NULL),
+(866, 2, 18, NULL, NULL),
+(867, 2, 19, NULL, NULL),
+(868, 2, 21, NULL, NULL),
+(869, 2, 22, NULL, NULL),
+(870, 2, 23, NULL, NULL),
+(871, 2, 24, NULL, NULL),
+(872, 2, 25, NULL, NULL),
+(873, 2, 26, NULL, NULL),
+(874, 2, 27, NULL, NULL),
+(875, 2, 28, NULL, NULL),
+(876, 2, 29, NULL, NULL),
+(877, 2, 30, NULL, NULL),
+(878, 2, 31, NULL, NULL),
+(879, 2, 32, NULL, NULL),
+(880, 2, 33, NULL, NULL),
+(881, 2, 34, NULL, NULL),
+(882, 2, 35, NULL, NULL),
+(883, 2, 36, NULL, NULL),
+(884, 2, 37, NULL, NULL),
+(885, 2, 38, NULL, NULL),
+(886, 2, 39, NULL, NULL),
+(887, 2, 40, NULL, NULL),
+(888, 2, 41, NULL, NULL),
+(889, 2, 42, NULL, NULL),
+(890, 2, 43, NULL, NULL),
+(891, 2, 44, NULL, NULL),
+(892, 2, 45, NULL, NULL),
+(893, 2, 46, NULL, NULL),
+(894, 2, 47, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_inquiries`
+--
+
+CREATE TABLE `user_inquiries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_inquiries`
+--
+
+INSERT INTO `user_inquiries` (`id`, `first_name`, `last_name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'Akila', 'Akila', 'akila@guisrilanka.com', '94714036561', 'SSL enabling', 'aa', '2023-07-17 02:38:08', '2023-07-17 02:38:08'),
+(2, 'test', 'test', 'akila@guisrilanka.com', '0123654987', 'test subject', 'test', '2023-07-17 07:13:53', '2023-07-17 07:13:53'),
+(3, 'test', 'Admin', 'akila@guisrilanka.com', '0112345678', 'test subject', 'test', '2023-07-17 07:18:48', '2023-07-17 07:18:48'),
+(4, 'RaymondDrurlMW', 'RaymondDrurlMW', 'no.reply.Lars-OlofLeroy@gmail.com', '86894449954', 'Do you want an inexpensive and inventive advertising solution?', 'Howdy-doody! wintercricket.com.au \r\n \r\nDid you know that it is possible to send commercial offer correctlСѓ legal? We provide a new legal method of sending business proposals via feedback forms. Such feedback forms can be located on a plethora of sites. \r\nWhen such business offers are sent, no personal data is employed, and messages are dispatched to forms specifically created to securely and safely receive messages and appeals. Contact Form messages aren’t likely to be sent to spam, since they are regarded as important. \r\nWe want you to trу our service without anу cost! \r\nWe can send up to 50,000 messages on your instruction. \r\n \r\nThe cost of sending one million messages is $59. \r\n \r\nThis offer is automatically generated. \r\nPlease use the contact details below to get in touch with us. \r\n \r\nContact us. \r\nTelegram - https://t.me/FeedbackFormEU \r\nSkype  live:feedbackform2019 \r\nWhatsApp  +375259112693 \r\nWhatsApp  https://wa.me/+375259112693 \r\n \r\nWe only use chat for communication.', '2023-07-25 13:30:12', '2023-07-25 13:30:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_subscriptions`
+--
+
+CREATE TABLE `user_subscriptions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_subscriptions`
+--
+
+INSERT INTO `user_subscriptions` (`id`, `email`, `created_at`, `updated_at`) VALUES
+(1, 'info@example.com', '2023-06-06 23:49:07', '2023-06-06 23:49:07'),
+(2, 'text@gmail.com', '2023-06-07 01:44:10', '2023-06-07 01:44:10'),
+(3, 'text@gmms.com', '2023-06-07 22:54:45', '2023-06-07 22:54:45'),
+(4, 'news@gmail.copm', '2023-06-14 23:47:59', '2023-06-14 23:47:59'),
+(5, 'iyii@gmail.com', '2023-06-15 22:00:10', '2023-06-15 22:00:10'),
+(6, 'chaminda@guisrilanka.com', '2023-07-14 05:45:09', '2023-07-14 05:45:09'),
+(7, 'akila@guisrilanka.com', '2023-07-17 03:40:28', '2023-07-17 03:40:28');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `club_contacts`
+--
+ALTER TABLE `club_contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment_replies`
+--
+ALTER TABLE `comment_replies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `email_settings`
+--
+ALTER TABLE `email_settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `forms`
+--
+ALTER TABLE `forms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `general_settings`
+--
+ALTER TABLE `general_settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page_descriptions`
+--
+ALTER TABLE `page_descriptions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page_meta_data`
+--
+ALTER TABLE `page_meta_data`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `posts_slug_unique` (`slug`);
+
+--
+-- Indexes for table `post_tag`
+--
+ALTER TABLE `post_tag`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `post_tag_post_id_foreign` (`post_id`),
+  ADD KEY `post_tag_tag_id_foreign` (`tag_id`);
+
+--
+-- Indexes for table `resources`
+--
+ALTER TABLE `resources`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rules`
+--
+ALTER TABLE `rules`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `site_settings`
+--
+ALTER TABLE `site_settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `site_templates`
+--
+ALTER TABLE `site_templates`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sponsors`
+--
+ALTER TABLE `sponsors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tags`
+--
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indexes for table `user_has_permissions`
+--
+ALTER TABLE `user_has_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_has_permissions_user_id_foreign` (`user_id`),
+  ADD KEY `user_has_permissions_permission_id_foreign` (`permission_id`);
+
+--
+-- Indexes for table `user_inquiries`
+--
+ALTER TABLE `user_inquiries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_subscriptions`
+--
+ALTER TABLE `user_subscriptions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `club_contacts`
+--
+ALTER TABLE `club_contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `comment_replies`
+--
+ALTER TABLE `comment_replies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `email_settings`
+--
+ALTER TABLE `email_settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `forms`
+--
+ALTER TABLE `forms`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `general_settings`
+--
+ALTER TABLE `general_settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT for table `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `page_descriptions`
+--
+ALTER TABLE `page_descriptions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `page_meta_data`
+--
+ALTER TABLE `page_meta_data`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `post_tag`
+--
+ALTER TABLE `post_tag`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `resources`
+--
+ALTER TABLE `resources`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `rules`
+--
+ALTER TABLE `rules`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `site_settings`
+--
+ALTER TABLE `site_settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `site_templates`
+--
+ALTER TABLE `site_templates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sponsors`
+--
+ALTER TABLE `sponsors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tags`
+--
+ALTER TABLE `tags`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user_has_permissions`
+--
+ALTER TABLE `user_has_permissions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=895;
+
+--
+-- AUTO_INCREMENT for table `user_inquiries`
+--
+ALTER TABLE `user_inquiries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `user_subscriptions`
+--
+ALTER TABLE `user_subscriptions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `post_tag`
+--
+ALTER TABLE `post_tag`
+  ADD CONSTRAINT `post_tag_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `post_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `user_has_permissions`
+--
+ALTER TABLE `user_has_permissions`
+  ADD CONSTRAINT `user_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`),
+  ADD CONSTRAINT `user_has_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,171 @@
+/*mobile*/
+
+@media only screen and (max-width: 767px) {
+  .header-section {
+    position: unset;
+    background-color: #051320;
+  }
+
+  .scrollDiv {
+    height: 0;
+
+}
+  .font-36 {
+    font-size: 24px;
+  }
+
+  .news-date {
+
+    margin-top: -40px;
+    margin-left: 10px;
+    font-size: 15px;
+  }
+
+  .font-18 {
+    font-size: 14px;
+  }
+
+  .img-news-date {
+    margin-top: -51.8%;
+
+  }
+
+  .owlCarousel1 .owl-nav .owl-prev span,
+  .owlCarousel2 .owl-nav .owl-prev span {
+
+    left: -12px;
+
+  }
+
+  .owlCarousel1 .owl-nav .owl-next span,
+  .owlCarousel2 .owl-nav .owl-next span {
+    right: -12px;
+  }
+
+  .footer-section p {
+    text-align: center !important;
+  }
+
+  .font-27 {
+    font-size: 24px;
+  }
+
+  .font-20 {
+    font-size: 16px;
+  }
+
+  .subscribe-section .rounded-pill {
+    border-radius: 0 !important;
+    padding: 15px 10px;
+  }
+  /* map */
+.map{
+  min-height: 400px;
+}
+}
+
+/*vertical*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .header-section {
+    position: unset;
+    background-color: #051320;
+  }
+
+  .news-date {
+    margin-top: -80px;
+    margin-left: 20px;
+    font-size: 30px;
+  }
+
+
+  .img-news-date {
+
+    margin-top: -55.8%;
+
+  }
+
+  .owlCarousel1 .owl-nav .owl-prev span,
+  .owlCarousel2 .owl-nav .owl-prev span {
+
+    left: -12px;
+
+  }
+
+  .owlCarousel1 .owl-nav .owl-next span,
+  .owlCarousel2 .owl-nav .owl-next span {
+    right: -12px;
+  }
+
+  .footer-section p {
+    text-align: center !important;
+  }
+
+  .subscribe-section .rounded-pill {
+    border-radius: 0 !important;
+    padding: 15px 10px;
+  }
+
+  .navbar-toggler {
+
+    margin-top: -35px;
+  }
+
+  .event-sec-hover p {
+    padding-top: 40px !important;
+  }
+
+  .event-sec-hover i {
+    padding-top: 35px !important;
+  }
+}
+
+/*landscape*/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .font-16 {
+    font-size: 13px;
+}
+.event-sec-hover p {
+  padding-top: 15px !important;
+}
+
+.event-sec-hover i {
+  padding-top: -10px !important;
+}
+.news-date {
+
+  margin-top: -60px;
+  margin-left: 10px;
+}
+.font-20 {
+  font-size: 15px;
+}
+.news-des {
+
+  margin-top: -18%;
+
+}
+.img-news-date {
+
+    margin-top: -23%;
+
+}
+}
+
+/*large*/
+
+@media (min-width: 1400px) {
+  .event-sec-hover p, .news-item-title {
+    padding-top: 40px !important;
+  }
+
+  .event-sec-hover i {
+    padding-top: 15px !important;
+  }
+  .img-news-date {
+
+    margin-top: -26.5%;
+
+}
+}

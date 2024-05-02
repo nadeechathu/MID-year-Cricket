@@ -1,0 +1,191 @@
+/* css for gallery page */
+.gallery-tab {
+    background: #002347 !important;
+    color: white;
+    font-size: 15px;
+    border-radius: 0px !important;
+    font-weight: 500;
+}
+
+.gallery-tab.active {
+    background: #1f5994 !important;
+    color: white !important;
+    border-color: #005a94 !important;
+}
+
+.gallery-tab:hover {
+    background: black !important;
+    border-color: black !important;
+    color: white !important;
+}
+
+/* .gallery-height {
+    height: 210px !important;
+} */
+
+/* css for events archive page */
+.event-date-time {
+    background: #051320;
+    color: white;
+    border-radius: 0px 0px 0px 20px;
+}
+
+.event-card{
+    border-radius: 40px !important;
+}
+
+.event-img {
+    border-radius: 20px 20px 0px 0px;
+}
+
+.event-content {
+    background: #ebebeb;
+    border-radius: 0px 0px 20px 0px;
+}
+
+.date {
+    color: #b29055;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+a .event-title {
+    font-weight: 700;
+    color: black;
+}
+
+.event-btn-color {
+    background: #002347;
+    font-weight: 600 !important;
+    font-size: 23px;
+}
+
+/* css for single events  */
+.event-single-date-time {
+    background: #051320;
+    color: white;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.single-event-card{
+    border-radius: 40px !important;
+}
+
+.single-event-img {
+    border-radius: 20px 20px 0px 0px;
+}
+
+.single-event-content {
+    border-radius: 0px 20px 20px 0px;
+}
+
+.single-event-img{
+    border-radius: 0px 20px 20px 0px;
+}
+
+.event-para {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.single-event-date {
+    font-size: 50px;
+}
+
+.event-main-title {
+    font-weight: 600;
+}
+
+/* countdown timer */
+.event-counter {
+    background: #434343;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.counter-text {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+/* css for club contacts */
+h1.contacts-heading {
+    color: #051320;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.club-contact-select {
+    border-radius: 13px;
+    border: solid 1px #c9c9c9;
+}
+
+.club-contact-search {
+    border-radius: 13px 0px 0px 13px;
+    border: solid 1px #c9c9c9;
+}
+
+.club-contact-btn {
+    border-radius: 0px 13px 13px 0px;
+    background: #07131f;
+    color: white;
+    font-weight: 500;
+    border-color: #07131f;
+    padding: 6px 20px;
+}
+
+.icon-address {
+    color: #00964b;
+    padding: 3px 6px !important;
+    border: solid 1px !important;
+}
+
+.icon-phone {
+    color: #00964b;
+    padding: 3px 5px !important;
+    border: solid 1px !important;
+}
+
+.icon-name {
+    color: #00964b;
+    font-size: 11px !important;
+    padding: 5px 6px !important;
+    border: solid 1px !important;
+}
+
+.icon-mail {
+    color: #00964b;
+    font-size: 12px !important;
+    padding: 4px 5px !important;
+    border: solid 1px !important;
+}
+
+.icon-web {
+    color: #00964b;
+    font-size: 14px !important;
+    padding: 3px 5px !important;
+    border: solid 1px !important;
+}
+
+.club-contact-card {
+    border-radius: 20px;
+}
+
+/* css for rules and regulations */
+.rules-regulations-head {
+    background: #001320 !important;
+    color: white !important;
+    border-radius: 20px !important;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.rules-regulations-section {
+    background: #d9e9f6;
+}
+
+.bg-remove {
+    background: #ffffff00;
+}
